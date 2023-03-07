@@ -1,3 +1,4 @@
 node_modules
-cypress/fixtures/testSuite.json
+cypress/fixtures/xPathTestSuite.json
+cypress/fixtures/cssTestSuite.json
 cypress/videos
