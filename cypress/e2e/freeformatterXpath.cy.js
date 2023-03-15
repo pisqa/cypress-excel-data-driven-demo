@@ -13,7 +13,7 @@ describe('freeformatter xpath data-driven tests', () => {
       cy.visit(ffxpUrl);
 
       //wait for cookies popup
-      cy.get('button').contains('Manage Options', { timeout: 10000 }).should('be.visible').click();
+      cy.get('button').contains('Manage Options', { timeout: 5000 }).should('be.visible').click();
       cy.get('button').contains('Confirm Choices').click();
 
     })

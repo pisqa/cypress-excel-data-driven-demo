@@ -14,23 +14,18 @@ module.exports = defineConfig({
         //load the xPath tests
         var sheet = workbook.Sheets['xPath-tests']
         var sheetAsJson = xlsx.utils.sheet_to_json(sheet)
-        var wrapper = {testSuite: sheetAsJson}
+        var wrapper = { testSuite: sheetAsJson }
 
-        fs.writeFile('cypress/fixtures/xPathTestSuite.json', JSON.stringify(wrapper), function (err) {
-          if (err) throw err;
-          console.log('Saved!');
-        });
+        fs.writeFile('cypress/fixtures/xPathTestSuite.json', JSON.stringify(wrapper))
 
         //load the css tests
-        // sheet = workbook.Sheets[workbook.SheetNames['css-tests']]
-        // sheetAsJson = { testSuite: xlsx.utils.sheet_to_json(sheet) }
+        sheet = workbook.Sheets['css-tests']
+        sheetAsJson = xlsx.utils.sheet_to_json(sheet)
+        wrapper = { testSuite: sheetAsJson }
 
-        // fs.writeFile('cypress/fixtures/cssTestSuite.json', JSON.stringify(sheetAsJson), function (err) {
-        //   if (err) throw err;
-        //   console.log('Saved!');
-        // });
+        fs.writeFile('cypress/fixtures/cssTestSuite.json', JSON.stringify(wrapper))
 
       })
     }
   }
-});
+})
