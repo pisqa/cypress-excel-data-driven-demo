@@ -12,8 +12,8 @@ Test CSS selectors
 
 ## Implementation
 Test cases are defined in /cypress/fixtures/testSuite.xlsx.  
-### [www.freeformatter.com/xpath-tester.html](https://www.freeformatter.com/xpath-tester.html)
-![My Image](/images/excel-xpath.jpg)
+
+![My Image](/images/excel-xpath.JPG)
 
 
 
