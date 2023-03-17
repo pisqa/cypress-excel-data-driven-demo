@@ -18,12 +18,14 @@ The objective is to verify that the SUT returns the correct results for various 
 The test XML is at [/cypress/fixtures/testXpath.xml](/cypress/fixtures/testXpath.xml).
 Test cases are defined in [/cypress/fixtures/testSuite.xlsx](/cypress/fixtures/testSuite.xlsx).
 15 test cases are defined, which is by no means comprehensive coverage, but sufficient for demo purposes.
+  
 ![excel-xpath](/images/excel-xpath.JPG)
 
 ### Jsoup CSS Query Tester
 The objective is to verify that the SUT returns the correct results for various CSS Selector queries. We cover only the Fetch Url option (https://bonigarcia.dev/selenium-webdriver-java/web-form.html).
 Test cases are defined in [/cypress/fixtures/testSuite.xlsx](/cypress/fixtures/testSuite.xlsx).
 15 test cases are defined, which is by no means comprehensive coverage, but sufficient for demo purposes.
+  
 ![excel-css](/images/excel-css.JPG)
 
 ## Implementation Notes
@@ -59,7 +61,7 @@ cy.intercept('POST', selectUrl).as('postSelect');
 cy.get('input#selectInput').clear().type(tc.cssSelector);
 cy.wait('@postSelect').its('response.statusCode').should('equal', 200).wait(3000);
 ```
-The extra 3 second wait is due to occasional test failuress even waiting for the API request (delay in rendering results?).
+The extra 3 second wait is due to occasional test failures even waiting for the API request (delay in rendering results?).
 
 ### I'm not a robot, honest! :innocent:
 Xpath-tester has bot detection which denies access when too-frequent requests are detected, so there is a 10 second delay in the beforeEach();
