@@ -1,28 +1,31 @@
-# cypress-data-driven-demo
+# Excel Data Driven Testing in Cypress
 
-This project demonstrates implementation of Data Driven Testing in Cypress.  
-Regression tests are implemented for 2 SUTs:
+This project demonstrates implementation of Excel Data Driven Testing in Cypress. Regression tests are implemented for two popular online tools for testing XPath and CSS queries:
 
 - [www.freeformatter.com/xpath-tester.html](https://www.freeformatter.com/xpath-tester.html)  
+  
 ![xpath-tester](/images/xpath-tester.JPG)
-Test Xpath selectors
+
 - [try.jsoup.org/](https://try.jsoup.org/)  
+  
 ![jsoup](/images/jsoup.JPG)
-
-Test CSS selectors
-
 
 
 ## Test Plan
-### Xpath Selectors
+### Freeformatter Xpath Query Tester
 
 The objective is to verify that the SUT returns the correct results for various XPath expressions. We cover both copy-paste of the XML and XML file upload, and also "Include 'XML Item Type' in output" switched on/off.  
 The test XML is at [/cypress/fixtures/testXpath.xml](/cypress/fixtures/testXpath.xml)  
 Test cases are defined in /cypress/fixtures/testSuite.xlsx.
 15 test cases are defined, which is by no means comprehensive coverage, but sufficient for demo purposes.
 
-![My Image](/images/excel-xpath.JPG)
+![excel-xpath](/images/excel-xpath.JPG)
 
+### Jsoup CSS Query Tester
+The objective is to verify that the SUT returns the correct results for various CSS Selector queries. We cover only the Fetch Url option (https://bonigarcia.dev/selenium-webdriver-java/web-form.html)
+Test cases are defined in /cypress/fixtures/testSuite.xlsx.
+15 test cases are defined, which is by no means comprehensive coverage, but sufficient for demo purposes.
+![excel-css](/images/excel-css.JPG)
 
 ## Implementation Notes
 Some interesting aspects of the implementation:  
@@ -59,6 +62,16 @@ cy.wait('@postSelect').its('response.statusCode').should('equal', 200).wait(3000
 ```
 Wait an extra 3 seconds because I was seeing occasional test fails only wait for the API request.
 
-npm install
+### I'm not a robot, honest! :innocent:
+Xpath-tester has bot detection which denies access when too-frequent requests are detected, so there is a 10 second delay in the beforeEach();
 
+##Execution
+To install and run the project:
+```
+npm install
 npx cypress run
+```
+
+### Test Results
+The results should display:  
+![run finished](/images/run-finished.JPG)
